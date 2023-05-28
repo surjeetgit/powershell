@@ -1,0 +1,6 @@
+################ PowershellDSC commands ######################
+--> Get-DscResource
+--> Get-Command *DSC*
+--> Import-DscResource -ModuleName PSDesiredStateConfiguration -Name WindowsFeature
+--> To apply a Configuration, use the Start-DSCConfiguration cmdlet, e.g.
+    Start-DscConfiguration -Path '.\path of MOF file -wait   
