@@ -3,4 +3,55 @@
 --> Get-Command *DSC*
 --> Import-DscResource -ModuleName PSDesiredStateConfiguration -Name WindowsFeature
 --> To apply a Configuration, use the Start-DSCConfiguration cmdlet, e.g.
-    Start-DscConfiguration -Path '.\path of MOF file -wait   
+    Start-DscConfiguration -Path '.\path of MOF file -wait
+
+-->Commands To Install PowerShell:
+    iex "& { $(irm https://aka.ms/install-powershell.ps1) } -UseMSI" 
+    -Daily
+    Install from the daily build
+    -Preview
+    Install the latest  preview version
+    -Quite
+    Install from MSI file without prompts
+    -DoNotOverwite
+    If there is a destination folder already exists, it will not overwrite
+    -AddtoPath
+    Allow you to set environment paths
+
+    Example of muti-switch command:
+    iex "& { $(irm https://aka.ms/install-powershell.ps1) } -UseMSI -Preview"
+
+--> PowerShell version check:
+    $psversiontable.psversion
+
+    Remember:
+    pwsh = powershell 7   
+
+--> to get the commands in powershell
+    Get-command -Verb Get
+    Get-command -Verb Get -Noun Process
+    Get-command -Noun Process
+
+--> To get the help
+    Get-help Get-Process -examples
+    Get-help Get-Process -online
+
+--> To Service Process
+    ==> Get-Process -Name ArcSOC -IncludeUserName
+    ==> Get-Process -Name ArcSOC | Format-List
+    ==> Get-Process -Name ArcSOC | Format-List *
+    ==> Get-Process -Name ArcSOC | where Id -EQ 9652 | Format-List *
+
+--> To manupulate Objects in PowerShell as everything in powershell is Objects
+    ==> select-object -input-object "variable_name" -Property *
+    ==> Get-Member -Input-Object "variable_name" (--> this will provide a list of all methods and properties of an input object)
+    ==> Get-Member -Input-Object "variable_name" -Name "name of method/property"
+
+--> To manupulate Array
+    ==> @('','',''....) --> syntex of how to use Array
+
+--> How to use pipeline for commands in powershell
+    ==> Pipeline is passing the output of one command to other
+    
+
+--> To manupulate ArrayList, HashTable, CustomObject
